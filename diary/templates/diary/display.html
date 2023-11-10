@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Viewer</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked@3.1.1/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+    <script>hljs.highlightAll();</script>
+</head>
+<body>
+    <div id="markdown-content">
+        {{ content|safe}}
+    </div>
+
+    <script>
+        // Fetch the Markdown content from the server or use your template context to get it
+        var markdownContent = `{% autoescape off %}{{ content }}{% endautoescape %}`;
+
+        // Use marked.js to render the Markdown content
+        document.getElementById('markdown-content').innerHTML = marked(markdownContent);
+    </script>
+</body>
+</html>
+

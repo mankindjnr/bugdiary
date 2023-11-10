@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>bugdiary</title>
+        <script src="https://cdn.jsdelivr.net/npm/marked@3.1.1/marked.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+        <script>hljs.highlightAll();</script>
+
+        <link rel="icon" type="image/x-icon" href="{% static 'diary/favicon.ico' %}" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="{% static 'diary/css/index.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container px-5">
+                <a class="navbar-brand" href="#!">Mankindjnr Bugdiary</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://amosnjoroge.onrender.com">resume</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://github.com/mankindjnr">github</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="bg-dark py-2">
+            <div class="container px-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="text-center my-5">
+                            <h1 class="display-5 fw-bolder text-white mb-2">Mankindjnr Code Adventures</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- bugs section-->
+
+        <section class="py-5 border-bottom" id="features">
+            <div class="container px-5 my-5">
+                <div class="row gx-5">
+                    {% for key, card in cards.items %}
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <a href="{% url 'bug' card.name %}" style="text-decoration: none; color: inherit;">
+                            <p>{{ card.content|safe }}</p>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container px-5"><p class="m-0 text-center text-white"> &copy; bugdiary</p></div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>
